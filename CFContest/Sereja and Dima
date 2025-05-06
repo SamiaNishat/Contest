@@ -1,0 +1,57 @@
+// Format
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin >> n;
+    vector<int> v;
+    for (int i = 0; i < n; i++)
+    {
+        int x;
+        cin >> x;
+        v.push_back(x);
+    }
+
+    int seraza = 0;
+    int dima = 0;
+    for (int i = 0; i <= n / 2; i++)
+    {
+        if (v.size() == 1)
+        {
+            seraza += v[0];
+            v.pop_back();
+            break;
+        }
+        if (v[0] > v[v.size() - 1])
+        {
+            seraza += v[0];
+            v.erase(v.begin());
+        }
+        else
+        {
+            seraza += v[v.size() - 1];
+            v.pop_back();
+        }
+
+        if (v.size() == 1)
+        {
+            dima += v[0];
+            v.pop_back();
+            break;
+        }
+        if (v[0] > v[v.size() - 1])
+        {
+            dima += v[0];
+            v.erase(v.begin());
+        }
+        else
+        {
+            dima += v[v.size() - 1];
+            v.pop_back();
+        }
+    }
+
+    cout << seraza << " " << dima << endl;
+}
