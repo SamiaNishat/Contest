@@ -3,7 +3,7 @@ using namespace std;
 
 int a[10005];
 
-int fibb(int n){
+int fibb(int n){   // complexity O(n)
 
    if(n<=1)return n; // base case
    
